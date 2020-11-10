@@ -4,7 +4,8 @@ module.exports = {
     list : (req, res) => {
         db.Movie.findAll()
         .then(function (result) { 
-            return res.status(200).json(result)
+            return res.render("movies", {
+                movies: result})
         })
          .catch( error => { res.status(503).send(error) });
     },
@@ -26,7 +27,8 @@ module.exports = {
             length: req.body.length 
         })
         .then( result => {
-            return res.status(201).json(result);
+            return res.render("create", {
+                movies: result});
         })
         .catch( error => { res.status(503).send(error) });
     }

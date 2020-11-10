@@ -1,11 +1,14 @@
 var express = require('express');
 var router = express.Router();
+const seriesController = require('./../controllers/api/seriesController');
 
 /* GET series page. */
-router.get('/', function(req, res, next) {
-  res.render('series', { title: 'Series' });
-  // res.send('vista de seriess');
+router.get('/', seriesController.list);
+router.get('/create', function(req, res, next) {
+  res.render('create', { title: 'Create Serie' });
 });
+router.get("/detail/:id?", seriesController.getOne);
 
+router.post('/create', seriesController.create);
 
 module.exports = router;

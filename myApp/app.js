@@ -7,7 +7,7 @@ const logger = require('morgan');
 
 // requiere vistas 
 const indexRouter = require('./routes/index');
-// const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/users');
 const moviesRouter = require('./routes/movies');
 const seriesRouter = require('./routes/series');
 
