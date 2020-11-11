@@ -10,15 +10,16 @@ var router = express.Router();
 // router.get('/login', function(req, res, next) {
 //   res.render('login');
 // });
-
+router.get('/', usersController.list);
 
 router.get('/login', function(req, res, next) {
     res.render('login', { title: 'Log In' });
   });
 
-// router.get('/register', function(req, res, next) {
-//     res.render('register', { title: 'Registrate' });
-//   });
+  router.get('/register', function(req, res, next) {
+    res.render('register', { title: 'Registrate' });
+  });
+
 
 router.post('/create', usersController.create);
 

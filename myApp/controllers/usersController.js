@@ -23,5 +23,21 @@ module.exports = {
     
     },
 
-};
+    // quiero probar a ver si se conecta con la tabla users
+    list : (req, res, next) => {
+    db.User.findAll()
+    .then(function (result) { 
+        return (result)
+    })
+     .catch( error => { res.status(503).send(error) });
+},
 
+getOne : (req, res) => {
+    db.Movie.findByPk(req.params.id)
+    .then( result => {
+        return res.status(200).json(result);
+    })
+    // .catch( error => { res.status(503).send(error) });
+},
+
+}
