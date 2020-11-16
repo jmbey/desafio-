@@ -4,29 +4,36 @@
 
   <%- include('partials/header') %>
     <!-- <h1 class="display-5 center"><%= title %></h1> -->
-    <p class= "p-2">Welcome to <%= title %>, here you will find all the muvis and series from ol over de guorld. All? Really? well, we du guat we can</p>
+    <p class= "p-2">Welcome to <%= title %>, here you will find all the muvis and series from ol over de guorld.</p>
 
-    <div class="list-group">
-      <a href="/movies" class="list-group-item list-group-item-action active bg-dark">
-        Movies
-      </a>
-      <a href="#" class="list-group-item list-group-item-action">Movie 1</a>
-      <a href="#" class="list-group-item list-group-item-action">Movie 2</a>
-      <a href="#" class="list-group-item list-group-item-action">Movie 3</a>
-      <a href="#" class="list-group-item list-group-item-action">Movie 4</a>
-      <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Movie 5</a>
+    <div class="row mx-md-n5">
+      <div class="col-4 mx-auto">
+        <div class="list-group-flush p-2">
+          <a href="/movies" class="list-group-item list-group-item-action active bg-dark">
+            Movies
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">Movie 1</a>
+          <a href="#" class="list-group-item list-group-item-action">Movie 2</a>
+          <a href="#" class="list-group-item list-group-item-action">Movie 3</a>
+          <a href="#" class="list-group-item list-group-item-action">Movie 4</a>
+          <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Movie 5</a>
+        </div>
+      </div>
+    
+      <div class="col-4 mx-auto">
+        <div class="list-group-flush p-2">
+          <a href="/series" class="list-group-item list-group-item-action active bg-dark">
+            Series
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">Serie 1</a>
+          <a href="#" class="list-group-item list-group-item-action">Serie 2</a>
+          <a href="#" class="list-group-item list-group-item-action">Serie 3</a>
+          <a href="#" class="list-group-item list-group-item-action">Serie 4</a>
+          <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Serie 5</a>
+        </div>
+      </div>
     </div>
-
-    <div class="list-group">
-      <a href="/series" class="list-group-item list-group-item-action active bg-dark">
-        Series
-      </a>
-      <a href="#" class="list-group-item list-group-item-action">Serie 1</a>
-      <a href="#" class="list-group-item list-group-item-action">Serie 2</a>
-      <a href="#" class="list-group-item list-group-item-action">Serie 3</a>
-      <a href="#" class="list-group-item list-group-item-action">Serie 4</a>
-      <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Serie 5</a>
-    </div>
+        
 
     
   </body>

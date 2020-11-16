@@ -1,26 +1,14 @@
 var express = require('express');
 var router = express.Router();
- const usersController = require ("../controllers/usersController.js")
+const usersController = require ("../controllers/usersController");
 
-/* GET */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
+router.get('/login', usersController.login);
+router.post('/login', usersController.processLogin);
 
-// router.get('/login', function(req, res, next) {
-//   res.render('login');
-// });
-router.get('/', usersController.list);
+router.get('/check', usersController.check);
+router.get('/logout', usersController.logout);
 
-router.get('/login', function(req, res, next) {
-    res.render('login', { title: 'Log In' });
-  });
-
-  router.get('/register', function(req, res, next) {
-    res.render('register', { title: 'Registrate' });
-  });
-
-
-router.post('/create', usersController.create);
+router.get('/register', usersController.register);
+router.post('/register', usersController.create);
 
 module.exports = router;

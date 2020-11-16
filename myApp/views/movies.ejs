@@ -6,7 +6,7 @@
     <div class="row row-cols-1 row-cols-md-3">
          <div class="col mb-4">
           <% for (let i=0; i < movies.length; i++) { %>
-            <div class="card">
+            <div class="card p-1">
                 
             <div class="card-body">
               <a href =/movies/detail/<%= movies[i].id %> ><h5 class="card-title"> <%= movies[i].title %> </h5> </a>
@@ -19,12 +19,12 @@
         <% } %>
         </div>
 
-    <!-- Esto deberia ser visible solo para users admin -->
-
-        <div>
+     
+    <% if (loggedUser.admin == 1) { %> 
+      <div>
           <h3>No encontraste la pelicula?</h3>
           <a href=/movies/create> Create </a>
-      </div>
-        
+      </div>   
+    <% } %>
 
     </body>

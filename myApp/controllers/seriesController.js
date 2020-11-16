@@ -1,34 +1,33 @@
-const db = require('../../database/models');
+const db = require('../database/models');
 
 module.exports = {
     list : (req, res) => {
-        db.Movie.findAll()
+        db.Serie.findAll()
         .then(function (result) { 
-            return res.render("movies", {
-                movies: result})
+            return res.render("series", {
+                series: result})
+   
         })
-         .catch( error => { res.status(503).send(error) });
+        .catch( error => { res.status(503).send(error) });
     },
 
     getOne : (req, res) => {
-        db.Movie.findByPk(req.params.id)
+        db.Serie.findByPk(req.params.id)
         .then( result => {
             return res.status(200).json(result);
         })
-        // .catch( error => { res.status(503).send(error) });
+        .catch( error => { res.status(503).send(error) });
     },
 
     create : (req, res) => {
-        db.Movie.create({
+        db.Serie.create({
             title: req.body.title,
-            rating: req.body.rating,
-            awards: req.body.awards,
             release_date: req.body.release_date,
-            length: req.body.length 
+            end_date: req.body.end_date,
         })
         .then( result => {
             return res.render("create", {
-                movies: result});
+                series: result});
         })
         .catch( error => { res.status(503).send(error) });
     }

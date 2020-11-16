@@ -1,43 +1,60 @@
 const fs = require('fs');
 const path = require('path');
-const bcrypt = require('bcrypt');
 const db = require("../database/models");
+const { check, validationResult, body } = require("express-validator");
+
 
 
 module.exports = {
 
     create : (req, res, next) => {
     db.User.create({
-        username: req.body.userName,
-        email: req.body.userEmail,
-        password: bcrypt.hashSync(req.body.userPassword, 10),
+        email: req.body.email,
+        password: req.body.password,
     })
         .then(function (user) {
-            res.redirect("/users/login")
+            res.redirect("/")
         })
         .catch(function (errors) {
             res.send(errors)
          
-        })
-
-    
+        })    
     },
 
-    // quiero probar a ver si se conecta con la tabla users
-    list : (req, res, next) => {
-    db.User.findAll()
-    .then(function (result) { 
-        return (result)
-    })
-     .catch( error => { res.status(503).send(error) });
-},
+    login: (req, res, next) => {
+        return res.render('login')
 
-getOne : (req, res) => {
-    db.Movie.findByPk(req.params.id)
-    .then( result => {
-        return res.status(200).json(result);
-    })
-    // .catch( error => { res.status(503).send(error) });
-},
+    },
 
-}
+    register: (req, res, next) => {
+        return res.render('register')
+
+    },
+
+    processLogin: (req, res, next) => {
+            db.User.findOne({ where: { email: req.body.email } })
+            .then(function (user) {
+
+                if (user != null) {
+                    if (req.body.password, user.password){
+                        req.session.loggedUser = user;
+                        res.redirect('/')
+                    }
+                }
+
+        })},
+
+        check: function (req, res, next) {
+            // Para checkear ususario logueado
+            res.send("El usuario loggeado es " + req.session.loggedUser.email);
+        },
+
+        logout: function (req, res, next) {
+            // para destruir la session
+            req.session.destroy();
+            res.redirect('/users/login');
+        },
+
+
+
+    }

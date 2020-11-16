@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const seriesController = require('./../controllers/api/seriesController');
+const seriesController = require('../controllers/seriesController');
 
 /* GET series page. */
 router.get('/', seriesController.list);
