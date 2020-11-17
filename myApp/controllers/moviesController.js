@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const Genre = require('../database/models/Genre');
 
 module.exports = {
     list : (req, res) => {
@@ -11,11 +12,13 @@ module.exports = {
     },
 
     getOne : (req, res) => {
-        db.Movie.findByPk(req.params.id)
-        .then( result => {
-            return res.status(200).json(result);
+        db.Movie.findByPk(req.params.id, {
+            include: [{association: "genre"}]
         })
-        // .catch( error => { res.status(503).send(error) });
+        .then( result => {
+            return res.render("detail", {Movie: result});
+        })
+     .catch( error => { res.status(503).send(error) });
     },
 
     create : (req, res) => {

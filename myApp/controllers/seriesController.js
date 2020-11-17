@@ -14,7 +14,7 @@ module.exports = {
     getOne : (req, res) => {
         db.Serie.findByPk(req.params.id)
         .then( result => {
-            return res.status(200).json(result);
+            return res.render("detailSeries", {Serie: result});
         })
         .catch( error => { res.status(503).send(error) });
     },

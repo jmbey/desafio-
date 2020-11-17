@@ -4,13 +4,18 @@
     <%- include('partials/header') %>
 
     <div class="card">
-        <h5 class="card-header"> Movie / Serie</h5>
+        <h5 class="card-header"> <%= Movie.title %></h5>
         <div class="card-body">
-          <h6 class="card-title">Rating: </h6>
-          <p class="card-text">Awards: </p>
-          <p class="card-text">Length: </p>
-          <p class="card-text">Release Date: </p>
+          <h6 class="card-title">Rating: <%= Movie.rating %></h6>
+          <p class="card-text">Awards: <%= Movie.awards %></p>
+          <p class="card-text">Length: <%= Movie.length %></p>
+          <p class="card-text">Release Date: <%= Movie.release_date %></p>
+          <p class="card-text">Genre: <%= Movie.genre.name %></p>
+
+          
           <a href="#" class="btn btn-primary">Edit</a>
+
+
         </div>
       </div>
 
