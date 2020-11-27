@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'S&M Database' });
 });
 
-router.get('/', indexController.listMovies, indexController.listSeries)
+router.get('/', indexController.listMoviesySeries)
 
 
 

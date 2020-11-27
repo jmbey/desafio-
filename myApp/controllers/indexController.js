@@ -1,25 +1,18 @@
 const db = require('../database/models');
 
-module.exports = {
-    listMovies : (req, res) => {
-        db.Movie.findAll()
-        .then(function (result) { 
-            return res.render("index", {
-                listmovies: result})
-        })
-         .catch( error => { res.status(503).send(error) });
-    }
-    
-    ,
 
-    listSeries : (req, res) => {
-        db.Serie.findAll()
-        .then(function (result) { 
-            return res.render("index", {
-                series: result})
-   
-        })
-        .catch( error => { res.status(503).send(error) });
+    module.exports = {
+        listMoviesySeries : (req, res) => {
+            db.Movie.findAll({limit: 5})
+            .then(function (resultmovie) {
+                   db.Serie.findAll({limit: 5})
+                    .then(function (resultserie) { 
+                        return res.render("index", {
+                            series: resultserie,
+                            movies: resultmovie
+                     })
+                })
+            })
+            .catch( error => { res.status(503).send(error) });
+        },
     }
-
-}

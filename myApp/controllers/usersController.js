@@ -45,7 +45,7 @@ module.exports = {
         })},
 
         check: function (req, res, next) {
-            // Para checkear ususario logueado
+            // Para checkear usuario logueado users/check
             res.send("El usuario loggeado es " + req.session.loggedUser.email);
         },
 

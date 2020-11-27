@@ -12,11 +12,10 @@
           <a href="/movies" class="list-group-item list-group-item-action active bg-dark">Movies</a>
 
 
-          <!-- <ejs for (let i=0; i < 5; i++) { %>
-              <a href =/movies/detail/<ejs listmovies[i].id %> class="list-group-item list-group-item-action"> 
-              <ejs listmovies[i].title %> 
-              </a>
-          } -->
+          <% for (let i=0; i < movies.length ; i++) { %>
+              <a href =/movies/detail/<%= movies[i].id %> class="list-group-item list-group-item-action"> 
+              <%= movies[i].title %></a>
+          <% } %>
         
           <a href="#" class="list-group-item list-group-item-action">Movie 1</a>
           <a href="#" class="list-group-item list-group-item-action">Movie 2</a>
