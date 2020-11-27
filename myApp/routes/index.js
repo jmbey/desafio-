@@ -5,10 +5,6 @@ const indexController = require('../controllers/indexController');
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'S&M Database' });
-});
-
 router.get('/', indexController.listMoviesySeries)
 
 
