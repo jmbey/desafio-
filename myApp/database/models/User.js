@@ -19,6 +19,9 @@ module.exports = function(sequelize, dataTypes) {
             type: dataTypes.STRING,
             notNull: true,
         },
+        admin: {
+            type: dataTypes.INTEGER,
+        }
         
     };
 
