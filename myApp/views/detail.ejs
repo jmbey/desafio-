@@ -16,6 +16,12 @@
           <a href="/movies/edit/<%= Movie.id %>" class="btn btn-primary">Edit</a>
           <% } %> 
 
+          <% if (loggedUser.admin == 1) { %>
+            <form action="/movies/delete/<%= Movie.id %>" method="POST">
+               <button type="submit" class="btn btn-primary">Delete</button>
+            </form>
+            <% } %> 
+
 
         </div>
       </div>

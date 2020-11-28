@@ -43,10 +43,51 @@ module.exports = {
                 genre: result
             })
         })
-    }
+    },
 
-    // update:  (req, res) => {
+    update:  (req, res) => {
 
-    // }
+        let pedidoMovies = db.Movie.findByPk(req.params.id);
+        let pedidoGenres = db.Genre.findAll();
+
+        Promise.all([pedidoMovies, pedidoGenres])
+            .then(function ([movie, genres]) {
+                res.render('editmovie', {
+                    movie: movie,
+                    genres: genres,
+                })
+            })
+
+
+     },
+
+     updateDone: (req, res) => {
+        db.Movie.update({
+            title: req.body.title,
+            rating: req.body.rating,
+            awards: req.body.awards,
+            release_date: req.body.release_date,
+            length: req.body.length,
+            genre_id: req.body.genre
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then( result => {
+            return res.redirect("/movies/detail/" + req.params.id);
+        })
+        .catch( error => { res.status(503).send(error) });
+     },
+
+     delete: (req, res) => {
+         db.Movie.destroy({
+             where: {
+                 id: req.params.id
+             }
+         })
+         res.redirect("/movies");
+     }
+     
 
 };

@@ -1,19 +1,19 @@
 <%- include('partials/head') %>
   <%- include('partials/header') %>
 
-<h1>Create Movie</h1>
-<form action="/movies/create" method="POST">
+<h1>Edit Movie</h1>
+<form action="/movies/edit/<%= movie.id %> " method="POST">
     <div>
         <label for="">Title</label>
-        <input type="text" name="title">
+        <input type="text" name="title" value= "<%= movie.title %> ">
     </div>
     <div>
         <label for="">Awards</label>
-        <input type="text" name="awards">
+        <input type="text" name="awards" value= "<%= movie.awards %> ">
     </div>
     <div>
         <label for="">Rating</label>
-        <input type="text" name="rating">
+        <input type="text" name="rating" value= "<%= movie.rating %> ">
     </div>
     <div>
         <label for="">Date</label>
@@ -21,17 +21,34 @@
     </div>
     <div>
         <label for="">Length</label>
-        <input type="text" name="length">
+        <input type="text" name="length" value= "<%= movie.length %> ">
     </div>
     <div>
+        <label for="">Genre</label>
+        <select name="genre">
+            <% for (let i=0; i < genres.length; i ++) { %>
+                <% if (genres[i].id == movie.genre_id) { %> 
+                    <option value="<%=genres[i].id%>" selected>
+                        <%= genres[i].name %> 
+                    </option>
+                <% } else { %>
+                    <option value="<%=genres[i].id%>">
+                        <%= genres[i].name %> 
+                    </option>
+                <% } %> 
+            <% } %> 
         
+        </select>
 
     </div>
 
 
     <div>
-        <button type="submit">Create</button>
+        <button type="submit">Update</button>
     </div>
+
+
+</form>
 
 
 </form>
