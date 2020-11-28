@@ -13,7 +13,7 @@
           <p class="card-text">Genre: <%= Movie.genre.name %></p>
 
           <% if (loggedUser.admin == 1) { %>
-          <a href="#" class="btn btn-primary">Edit</a>
+          <a href="/movies/edit/<%= Movie.id %>" class="btn btn-primary">Edit</a>
           <% } %> 
 
 
